@@ -1,0 +1,28 @@
+<div class="ekart-product--container">
+  <!-- Below code was for 1-way data binding -->
+  <!-- <img [src]="product.productImage" />
+<p>Product Name: {{product.name}}</p>
+<p>Price: {{'$'+product.price}}</p>
+<p>Model Color: {{product.color}}</p>
+<p>After Discount Applied: R{{ getDiscountedPrice() }}</p>
+<p>{{product.inStock > 0 ? 'only ' + product.inStock + ' items Left':'not in stock'}}</p>
+<button [disabled]="product.inStock == 0">BUY NOW</button> -->
+  <!-- <button [disabled]="isOutOfStock" (click)="decrementCartValue()">-</button>
+ <span>{{addToCart}}</span>
+ <button (click)="incrementCartValue()">+</button> -->
+  <!-- <input [value]="componentName" (input)="onNameChange($event)"> <br/>
+<p>name={{componentName}}</p> -->
+
+  <!-- <div *ngFor="let item of listOfString">
+    <p>Iterated Names are : {{item}}</p>
+</div> -->
+
+  <app-search (searchTextChanged)="setSearchText($event)"></app-search>
+  <app-product-list
+    [searchText]="searchText"
+    #productListComponent
+  ></app-product-list>
+  <app-product-details
+    *ngIf="productListComponent.selectedProducts"
+  ></app-product-details>
+</div>
